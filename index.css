@@ -3,13 +3,23 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root{
+    --primary-color:rgb(248, 209, 248);
+    --secondary-color:rgb(0, 0, 0,0.5);
+    --tertiary-color:black;
+}
+.dark-theme{
+    --primary-color:#38023b;
+    --secondary-color:rgb(255, 255, 255,0.5);
+    --tertiary-color:white;
+}
 body{
     background-color: rgb(240, 240, 240);
 }
 .container{
     width: 100%;
     min-height: 100vh;
-    background:rgb(255, 231, 255);
+    background:var(--primary-color);
     padding: 10px;
 }
 .todo{
@@ -19,7 +29,7 @@ body{
     margin: 50px auto;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px var(--secondary-color);
 }
 .todo h1{
     color: rgb(78, 8, 95) ;
@@ -32,6 +42,10 @@ body{
     width: 30px;
     margin-left: 10px;
 }
+#img2{
+    /* mix-blend-mode: color-burn; */
+    cursor: pointer;
+}
 .row{
     display: flex;
     align-items: center;
@@ -40,6 +54,7 @@ body{
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
+    height: 50px;
 }
 input{
     flex: 1;
@@ -57,6 +72,15 @@ button{
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;
+    height: 50px;
+    width: 100px;
+}
+button:hover{
+    opacity: 0.8;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.15);
+}
+button:active{
+    opacity: 0.6;
 }
 ul li{
     list-style: none;
@@ -69,6 +93,10 @@ ul li{
     align-items: center;
     justify-content: space-between;
     transition: background 0.3s;
+}
+ul li:hover{
+    background-color: rgba(128, 128, 128, 0.1);
+    border-radius: 40px;
 }
 ul li::before{
     content: '';
@@ -106,7 +134,17 @@ ul li span{
     margin-left: auto;
 }
 ul li span:hover{
-    background: rgb(237, 238, 240);
+    background: rgba(128, 128, 128, 0.29);
+    /* transition:all 1s ease-in-out;
+    transform: scale(2,0.5) ; */
+}
+#current-time{
+    font-size: 20px;
+    font-weight:900;
+    margin: 20px;
+    color: var(--tertiary-color);
+    text-shadow:var(--secondary-color) 3px 3px 8px;
+    letter-spacing: 5px;
 }
 @media (max-width: 768px) {
     .todo {
